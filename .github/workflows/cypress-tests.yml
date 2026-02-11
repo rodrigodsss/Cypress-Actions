@@ -1,44 +1,28 @@
 name: Cypress Tests
 
-<<<<<<< HEAD
-on: 
-  workflow_dispatch:
-    inputs:
-      cli:
-        description: Run by cypress command line
-        default: yarn cypress run
-=======
 on:
   workflow_dispatch:
     inputs:
       spec:
         description: Spec pattern (optional)
         default: cypress/e2e/**/*.cy.js
->>>>>>> 5850e38ec929a3e154648d4436c5e39390d67a96
 
 jobs:
   cypress-electron-tests:
     runs-on: ubuntu-latest
-<<<<<<< HEAD
-    steps:
-        - name: Get code
-          uses: actions/checkout@v3.3.0
-          
-        - name: Install dependencies
-          run: yarn install
-          
-        - name: Run E2E tests
-          run: ${{github.event.inputs.cli}}
-=======
-
     steps:
       - name: Get code
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
 
       - name: Cypress run (Electron)
-        uses: cypress-io/github-action@v5.7.1
+        uses: cypress-io/github-action@v6
         with:
-          install-command: yarn install --frozen-lockfile
+          install-command: npm ci
           browser: electron
           spec: ${{ github.event.inputs.spec }}
->>>>>>> 5850e38ec929a3e154648d4436c5e39390d67a96
