@@ -10,13 +10,6 @@
   "author": "Fernando Papito",
   "license": "MIT",
   "devDependencies": {
-<<<<<<< HEAD
-    "cypress": "^12.5.1"
-  },
-  "keywords": [],
-  "type": "commonjs"
-=======
-    "cypress": "12.5.1"
-  }
->>>>>>> 5850e38ec929a3e154648d4436c5e39390d67a96
+    "cypress": "^12.0.0"
+  }   
 }
